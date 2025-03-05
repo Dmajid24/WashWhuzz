@@ -21,20 +21,26 @@
                     <div class="card-body">
                         <form action="/checklogin" method="POST">
                             @csrf
+                                @if(session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
                                 <div class="form-group">
-                                <label for="">Username</label>
-                                <input type="text" class="form-control" name="username" required>
+                                    <label for="">Username</label>
+                                    <input type="text" class="form-control" name="username" required>
+                                    
                                 </div>
                                 
                                 <div class="form-group">
-                                <label for="">Password</label>
-                                <input type="password" class="form-control" name="password" required>
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
  
                                 <div class="col-md-6 mt-4">
                                     <input name="" id="" class="btn btn-primary" type="submit" value="Sign In">
                                 </div>
-
+                              
                             <small>didn't have account? <a href="/register">Register </a>now</small>
                         </form>
                     </div>
