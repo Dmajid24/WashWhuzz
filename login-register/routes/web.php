@@ -10,4 +10,3 @@ Route::get('/register', [authController::class, 'register']);
 Route::post('/insertUser', [authController::class, 'insertUser']);
 
 Route::post('/checklogin', [authController::class, 'checklogin']);
-

@@ -1,103 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex justify-center items-center min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('Gambar/bgSignUp.png') }}');">
+        <div class="bg-black bg-opacity-50 p-10 rounded-lg w-full max-w-lg">
+            <!-- Judul -->
+            <h1 class="text-3xl font-bold text-center">
+                JOIN OUR MOBILE WASH 
+                <span class="text-red-500 italic">MOBILE</span>
+            </h1>
+            <h1 class="text-3xl font-bold text-center">
+                <span class="text-red-500 italic">WASH</span> COMMUNITY
+            </h1>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-    <title>Register Washwhuzz</title>
-  </head>
-  <body>
-    <div class="container-fluids">
-        <div class="row justify-content-center">
-            <div class="col-lg-4">
-                <div class="card mt-5">
-                    <div class="card-header">
-                        <strong class="text-center d-block">Form <span class="text-primary">Register</span> </strong>
-                    </div>
-                    <div class="card-body">
-                        <form action="/insertUser" method="POST">
-                            @csrf
-                                <div class="form-group">
-                                    <label for="">Nama Lengkap</label>
-                                    <input type="text"class="form-control" name="name" value="{{ old('name') }}"autofocus required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                    
-                                    @error('email')
-                                        <small class="text-danger">Account already use</small>
-                                    @enderror
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="">Username</label>
-                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}" required>
-
-                                    @error('username')
-                                        <small class="text-danger">Username already use</small>
-                                    @enderror
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input type="password" class="form-control" name="password" required>
-
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="">City</label>
-                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Province</label>
-                                    <input type="text" class="form-control" name="province" value="{{ old('province') }}" required>
-                                </div>                    
-                                
-                                <div class="form-group">
-                                    <label for="">Address</label>
-                                    <textarea type="address" class="form-control" name="address"  value="{{ old('address') }}" required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Phone</label>
-                                    <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" required >
-                                    @error('phone')
-                                        <small class="text-danger">Account already use</small>
-                                    @enderror
-                                </div>
-
-                                <div class="col-md-6 mt-4">
-                                    <input name="" id="" class="btn btn-primary" type="submit" value="Sign Up">
-                                </div>
-
-                            <small>already have account? <a href="/">login </a>now</small>
-                        </form>
-                    </div>
+            <!-- Form -->
+            <form action="/insertUser" method="POST" class="space-y-4">
+                @csrf
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('name') }}"
+                        required
+                    >
                 </div>
-            </div>
 
+                <div class="form-group">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Email"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('email') }}"
+                        required
+                    >
+                    @error('email')
+                        <small class="text-red-500">Account already in use</small>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="username" 
+                        placeholder="Username"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('username') }}"
+                        required
+                    >
+                    @error('username')
+                        <small class="text-red-500">Username already in use</small>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Password"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="phone" 
+                        placeholder="Phone"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('phone') }}"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="city" 
+                        placeholder="City"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('city') }}"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        name="province" 
+                        placeholder="Province"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        value="{{ old('province') }}"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <textarea 
+                        name="address" 
+                        placeholder="Address"
+                        class="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
+                        required
+                    >{{ old('address') }}</textarea>
+                </div>
+
+                <div class="text-sm">
+                    <label>
+                        <input type="checkbox" class="mr-2"> 
+                        I am 18 years old or older.
+                    </label><br>
+                    <label>
+                        <input type="checkbox" class="mr-2"> 
+                        I agree to the 
+                        <a href="#" class="text-blue-400">Terms of Service</a>.
+                    </label><br>
+                    <label>
+                        <input type="checkbox" class="mr-2"> 
+                        I agree to receive updates and promotions.
+                    </label>
+                </div>
+                <div class="flex flex-col items-center mt-4">
+                   <button  
+                        type="submit" 
+                        class="bg-yellow-500 text-red-600 font-bold px-6 py-2 rounded inline-block hover:bg-yellow-400 transition"
+                    >
+                        SIGN UP
+                    </button>
+                    
+                </div>
+                <p class="mt-2 text-white text-sm">
+                        Already have an account? <a href="/" class="text-blue-400">Login</a> now
+                </p>
+            </form>
         </div>
     </div>
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    -->
-  </body>
+</body>
 </html>

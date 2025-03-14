@@ -39,7 +39,7 @@ class authController extends Controller
         ]);
         
         
-        return redirect('/');
+        return redirect('/')->with('success', 'Registrasion Successfull');
     }
 
     public function login(Request $req){
